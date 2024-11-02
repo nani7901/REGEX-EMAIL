@@ -31,7 +31,7 @@
 
 1.Navigate to the directory containing app.py and run:
 
-  "python app.py"
+    "python app.py"
 
 2.Open your browser and go to http://127.0.0.1:5000/ to see the application.
 
@@ -50,7 +50,7 @@
 
 2.Here’s a quick command for scp:
 
-  "scp -r /path/to/local/files username@server_ip:/path/to/remote/directory".
+    "scp -r /path/to/local/files username@server_ip:/path/to/remote/directory".
 
 3.If you prefer a GUI, consider using tools like FileZilla for easier file transfers.
 
@@ -58,8 +58,8 @@
 
 1.To ensure the server is up-to-date, run the following commands:
 
-  "sudo apt update"
-  "sudo apt upgrade"
+    "sudo apt update"
+    "sudo apt upgrade"
 
 ## Install Python and Pip
 
@@ -71,13 +71,13 @@
 
 1.If you need to create a requirements.txt file listing all packages in your current environment, use:
 
-   "pip freeze > requirements.txt"
+    "pip freeze > requirements.txt"
 
 ## Install Application Dependencies
 
 1.After transferring the application files to the server, install the required Python packages listed in requirements.txt.
 
-   "pip install -r requirements.txt"
+    "pip install -r requirements.txt"
 
 # Running and Managing the Application
 
@@ -85,27 +85,27 @@
 
 1.To run the Python application in the background, use the nohup command:
 
-   "nohup python3 app.py &"
+    "nohup python3 app.py &"
   
-2. The & allows the process to run in the background, and nohup prevents it from stopping when you disconnect from the server.
+2.The & allows the process to run in the background, and nohup prevents it from stopping when you disconnect from the server.
 
 ## Check Background Processes
 
-1. To see all background processes for the current user, run:
+1.To see all background processes for the current user, run:
 
     "top -u $USER"
 
 ## Terminate a Process by PID
 
-1. If you need to stop a specific process, use the kill command with the Process ID (PID):
+1.If you need to stop a specific process, use the kill command with the Process ID (PID):
 
-   "kill <PID>"
+    "kill <PID>"
 
 ## Forcefully Terminate a Process
 
 1.To forcefully terminate a process, use:
 
-  "kill -9 <PID>"
+    "kill -9 <PID>"
 
 2.Replace <PID> with the actual Process ID of the application you want to terminate.
 
