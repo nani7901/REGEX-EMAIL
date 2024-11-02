@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Matcher</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 500px;
+        }
+        input {
+            padding: 10px;
+            width: calc(100% - 22px);
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        p.result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .matches {
+            margin-top: 10px;
+            text-align: left;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;
+        }
+        .highlight {
+            background-color: yellow;
+            color: black;
+            font-weight: bold;
+        }
+        .highlighted-text {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        .refresh-button {
+            margin-top: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffc107;
+            color: black;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .refresh-button:hover {
+            background-color: #e0a800;
+        }
+        a {
+            color: #4CAF50; /* Change the color of the link */
+            text-decoration: none; /* Remove underline */
+            margin-top: 20px; /* Add margin to increase distance */
+            display: inline-block; /* Ensure proper spacing */
+        }
+        a:hover {
+            text-decoration: underline; /* Add underline on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Regex Matcher</h1>
+        <form method="POST">
+            <input type="text" name="pattern" placeholder="Enter regex pattern" required>
+            <input type="text" name="text" placeholder="Enter text to match" required>
+            <button type="submit">Match</button>
+        </form>
+        {% if result %}
+            <p class="result">{{ result }}</p>
+            {% if matches %}
+                <div class="matches">
+                    <strong>Matches:</strong>
+                    <ul>
+                    {% for match in matches %}
+                        <li>{{ match }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+                <div class="highlighted-text">
+                    <strong>Highlighted Text:</strong><br>
+                    {{ highlighted_text|safe }}
+                </div>
+            {% endif %}
+        {% endif %}
+        <form method="POST" action="/regex">
+            <button type="submit" class="refresh-button">Refresh Results</button>
+        </form>
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

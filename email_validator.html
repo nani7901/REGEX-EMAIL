@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validator</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 500px;
+        }
+        input {
+            padding: 10px;
+            width: calc(100% - 22px);
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        p.result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .back-link {
+            color: #fff; /* Change color of the link */
+            text-decoration: underline; /* Underline the link */
+            margin-top: 30px; /* Increase margin for distance */
+        }
+        .refresh-button {
+            margin-top: 20px; /* Space between result and button */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Email Validator</h1>
+        <form method="POST">
+            <input type="text" name="email" placeholder="Enter your email" required>
+            <button type="submit">Validate</button>
+        </form>
+        {% if result %}
+            <p class="result">{{ result }}</p>  <!-- Display result only if it exists -->
+            <form method="POST" class="refresh-button">
+                <button type="submit" name="refresh">Refresh Result</button>
+            </form>
+            <a href="/" class="back-link">Back to Home</a>
+        {% endif %}
+    </div>
+</body>
+</html>
